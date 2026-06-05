@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>PwP Tool PPS</title>
+
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <link rel="stylesheet" href="./taskpane.css" />
+</head>
+
+<body>
+  <main class="app">
+    <h1>PwP Tool PPS</h1>
+    <p class="subtitle">Herramientas para PowerPoint</p>
+
+    <section class="card">
+      <h2>Configuración privada</h2>
+
+      <label for="privateConfigUrl">URL privada de configuración</label>
+      <textarea
+        id="privateConfigUrl"
+        rows="4"
+        placeholder="Pega aquí una URL privada si quieres cargar configuración externa..."
+      ></textarea>
+
+      <div class="button-row">
+        <button id="loadConfigFromUrl">Cargar configuración</button>
+        <button id="clearConfigUrl">Olvidar URL</button>
+      </div>
+
+      <label for="configFile">O cargar configuración desde archivo JSON</label>
+      <input id="configFile" type="file" accept=".json,application/json" />
+    </section>
+
+    <section class="card">
+      <h2>Herramientas</h2>
+
+      <button id="formatBoldByColon">Formatear negritas por :</button>
+      <button id="formatCurrentSlide">Formatear diapositiva actual</button>
+      <button id="translateCurrentSlide">Traducir diapositiva actual</button>
+      <button id="translateAllSlides">Traducir presentación</button>
+      <button id="translateTables">Traducir tablas</button>
+    </section>
+
+    <section class="card">
+      <h2>Estado</h2>
+      <pre id="log"></pre>
+    </section>
+  </main>
+
+  <script src="./taskpane.js"></script>
+</body>
+</html>
