@@ -14,60 +14,74 @@
       <p class="subtitle">Herramientas para PowerPoint</p>
     </header>
 
-    <section class="card">
-      <h2>Configuración privada</h2>
-      <label for="privateConfigUrl">URL privada de configuración</label>
-      <textarea id="privateConfigUrl" rows="3" spellcheck="false" placeholder="Pega aquí una URL privada si quieres cargar configuración externa..."></textarea>
-      <div class="button-row">
-        <button id="loadConfigFromUrl" type="button">Cargar configuración</button>
-        <button id="clearConfigUrl" type="button">Olvidar URL</button>
-      </div>
-      <label for="configFile">O cargar configuración desde archivo JSON</label>
-      <input id="configFile" type="file" accept=".json,application/json" />
+    <nav class="tabs" aria-label="Menú principal">
+      <button id="tabFormat" type="button" class="tab-button active" data-target="panelFormat">Formato</button>
+      <button id="tabTranslate" type="button" class="tab-button" data-target="panelTranslate">Traducir</button>
+    </nav>
+
+    <section id="panelFormat" class="tab-panel active">
+      <section class="card">
+        <h2>Formato de texto</h2>
+        <p class="hint">Aplica formato visual después de traducir o editar textos.</p>
+        <button id="formatBoldByColon" type="button">Formatear negritas por :</button>
+        <button id="formatCurrentSlide" type="button">Formatear diapositiva actual</button>
+      </section>
     </section>
 
-    <section class="card">
-      <h2>Formato</h2>
-      <button id="formatBoldByColon" type="button">Formatear negritas por :</button>
-      <button id="formatCurrentSlide" type="button">Formatear diapositiva actual</button>
+    <section id="panelTranslate" class="tab-panel">
+      <section class="card">
+        <h2>Configuración privada</h2>
+        <label for="privateConfigUrl">URL privada de configuración</label>
+        <textarea id="privateConfigUrl" rows="3" spellcheck="false" placeholder="Pega aquí una URL privada si quieres cargar configuración externa..."></textarea>
+        <div class="button-row">
+          <button id="loadConfigFromUrl" type="button">Cargar configuración</button>
+          <button id="clearConfigUrl" type="button">Olvidar URL</button>
+        </div>
+        <label for="configFile">O cargar configuración desde archivo JSON</label>
+        <input id="configFile" type="file" accept=".json,application/json" />
+      </section>
+
+      <section class="card">
+        <h2>Configuración de traducción</h2>
+        <label for="translatorEndpoint">Endpoint LibreTranslate</label>
+        <input id="translatorEndpoint" type="text" spellcheck="false" value="https://translate.mstdn.social" />
+
+        <div class="grid-2">
+          <div>
+            <label for="sourceLang">Origen</label>
+            <input id="sourceLang" type="text" value="es" />
+          </div>
+          <div>
+            <label for="targetLang">Destino</label>
+            <input id="targetLang" type="text" value="en" />
+          </div>
+        </div>
+
+        <label for="apiKey">API key opcional</label>
+        <input id="apiKey" type="password" spellcheck="false" placeholder="Vacío si no aplica" />
+
+        <div class="grid-2">
+          <div>
+            <label for="maxTexts">Máx. cajas</label>
+            <input id="maxTexts" type="number" value="10" min="1" max="500" />
+          </div>
+          <div>
+            <label for="delayMs">Pausa ms</label>
+            <input id="delayMs" type="number" value="700" min="0" max="5000" />
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Acciones de traducción</h2>
+        <p class="hint">Flujo recomendado: traducir primero y después aplicar formato de negritas.</p>
+        <button id="testTranslator" type="button">Probar traductor</button>
+        <button id="translateCurrentSlide" type="button">Traducir diapositiva actual</button>
+        <button id="translateAllSlides" type="button">Traducir presentación</button>
+      </section>
     </section>
 
-    <section class="card">
-      <h2>Traducción</h2>
-      <label for="translatorEndpoint">Endpoint LibreTranslate</label>
-      <input id="translatorEndpoint" type="text" spellcheck="false" value="https://translate.mstdn.social" />
-
-      <div class="grid-2">
-        <div>
-          <label for="sourceLang">Origen</label>
-          <input id="sourceLang" type="text" value="es" />
-        </div>
-        <div>
-          <label for="targetLang">Destino</label>
-          <input id="targetLang" type="text" value="en" />
-        </div>
-      </div>
-
-      <label for="apiKey">API key opcional</label>
-      <input id="apiKey" type="password" spellcheck="false" placeholder="Vacío si no aplica" />
-
-      <div class="grid-2">
-        <div>
-          <label for="maxTexts">Máx. cajas</label>
-          <input id="maxTexts" type="number" value="10" min="1" max="500" />
-        </div>
-        <div>
-          <label for="delayMs">Pausa ms</label>
-          <input id="delayMs" type="number" value="700" min="0" max="5000" />
-        </div>
-      </div>
-
-      <button id="testTranslator" type="button">Probar traductor</button>
-      <button id="translateCurrentSlide" type="button">Traducir diapositiva actual</button>
-      <button id="translateAllSlides" type="button">Traducir presentación</button>
-    </section>
-
-    <section class="card">
+    <section class="card status-card">
       <div class="status-header">
         <h2>Estado</h2>
         <button id="clearLog" type="button" class="small-button">Limpiar</button>
