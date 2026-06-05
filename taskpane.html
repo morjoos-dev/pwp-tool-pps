@@ -2,16 +2,21 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PwP Tool PPS</title>
 
-  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <!-- Office JavaScript API -->
+  <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+
+  <!-- Estilos propios -->
   <link rel="stylesheet" href="./taskpane.css" />
 </head>
-
 <body>
   <main class="app">
-    <h1>PwP Tool PPS</h1>
-    <p class="subtitle">Herramientas para PowerPoint</p>
+    <header class="app-header">
+      <h1>PwP Tool PPS</h1>
+      <p class="subtitle">Herramientas para PowerPoint</p>
+    </header>
 
     <section class="card">
       <h2>Configuración privada</h2>
@@ -20,12 +25,13 @@
       <textarea
         id="privateConfigUrl"
         rows="4"
+        spellcheck="false"
         placeholder="Pega aquí una URL privada si quieres cargar configuración externa..."
       ></textarea>
 
       <div class="button-row">
-        <button id="loadConfigFromUrl">Cargar configuración</button>
-        <button id="clearConfigUrl">Olvidar URL</button>
+        <button id="loadConfigFromUrl" type="button">Cargar configuración</button>
+        <button id="clearConfigUrl" type="button">Olvidar URL</button>
       </div>
 
       <label for="configFile">O cargar configuración desde archivo JSON</label>
@@ -33,21 +39,29 @@
     </section>
 
     <section class="card">
-      <h2>Herramientas</h2>
-
-      <button id="formatBoldByColon">Formatear negritas por :</button>
-      <button id="formatCurrentSlide">Formatear diapositiva actual</button>
-      <button id="translateCurrentSlide">Traducir diapositiva actual</button>
-      <button id="translateAllSlides">Traducir presentación</button>
-      <button id="translateTables">Traducir tablas</button>
+      <h2>Formato</h2>
+      <button id="formatBoldByColon" type="button">Formatear negritas por :</button>
+      <button id="formatCurrentSlide" type="button">Formatear diapositiva actual</button>
     </section>
 
     <section class="card">
-      <h2>Estado</h2>
+      <h2>Traducción</h2>
+      <p class="hint">Pendiente de activar en la siguiente versión.</p>
+      <button id="translateCurrentSlide" type="button" disabled>Traducir diapositiva actual</button>
+      <button id="translateAllSlides" type="button" disabled>Traducir presentación</button>
+      <button id="translateTables" type="button" disabled>Traducir tablas</button>
+    </section>
+
+    <section class="card">
+      <div class="status-header">
+        <h2>Estado</h2>
+        <button id="clearLog" type="button" class="small-button">Limpiar</button>
+      </div>
       <pre id="log"></pre>
     </section>
   </main>
 
-  <script src="./taskpane.js"></script>
+  <!-- Código propio -->
+  <script type="text/javascript" src="./taskpane.js"></script>
 </body>
 </html>

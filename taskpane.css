@@ -7,7 +7,11 @@ body {
 }
 
 .app {
-  max-width: 420px;
+  max-width: 460px;
+}
+
+.app-header {
+  margin-bottom: 10px;
 }
 
 h1 {
@@ -16,12 +20,12 @@ h1 {
 }
 
 .subtitle {
-  margin-top: 0;
+  margin: 0;
   color: #666;
 }
 
 .card {
-  background: white;
+  background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 12px;
@@ -30,19 +34,23 @@ h1 {
 
 h2 {
   font-size: 16px;
-  margin-top: 0;
+  margin: 0 0 10px;
 }
 
 label {
   display: block;
   font-size: 13px;
   margin: 8px 0 4px;
+  font-weight: 600;
 }
 
 textarea {
   width: 100%;
   box-sizing: border-box;
   resize: vertical;
+  padding: 8px;
+  font-family: Consolas, monospace;
+  font-size: 12px;
 }
 
 button {
@@ -53,25 +61,52 @@ button {
   border-radius: 4px;
   background: #fff;
   cursor: pointer;
+  font-weight: 600;
 }
 
-button:hover {
+button:hover:not(:disabled) {
   background: #eee;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .button-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6px;
+  margin-top: 6px;
+}
+
+.status-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.small-button {
+  width: auto;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.hint {
+  font-size: 12px;
+  color: #666;
+  margin: 0 0 8px;
 }
 
 pre {
   white-space: pre-wrap;
   font-size: 12px;
   background: #111;
-  color: #0f0;
+  color: #00ff5a;
   padding: 8px;
   border-radius: 4px;
-  max-height: 220px;
+  max-height: 240px;
   overflow: auto;
+  margin: 0;
 }
