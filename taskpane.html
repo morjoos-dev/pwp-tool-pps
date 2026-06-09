@@ -15,14 +15,14 @@
     </header>
 
     <nav class="tabs" aria-label="Menú principal">
-      <button id="tabFormat" type="button" class="tab-button active" data-target="panelFormat">Formato</button>
-      <button id="tabTranslate" type="button" class="tab-button" data-target="panelTranslate">Traducir</button>
+      <button id="tabFormat" type="button" class="tab-button active" data-target="panelFormat" onclick="pwpShowTab('panelFormat')">Formato</button>
+      <button id="tabTranslate" type="button" class="tab-button" data-target="panelTranslate" onclick="pwpShowTab('panelTranslate')">Traducir</button>
     </nav>
 
     <section id="panelFormat" class="tab-panel active">
       <section class="card">
         <h2>Formato de texto</h2>
-        <p class="hint">Aplica formato visual después de traducir o editar textos.</p>
+        <p class="hint">Escaneo profundo activado: formas, grupos y subgrupos.</p>
         <button id="formatBoldByColon" type="button">Formatear negritas por :</button>
         <button id="formatCurrentSlide" type="button">Formatear diapositiva actual</button>
       </section>
@@ -62,8 +62,8 @@
 
         <div class="grid-2">
           <div>
-            <label for="maxTexts">Máx. cajas</label>
-            <input id="maxTexts" type="number" value="10" min="1" max="500" />
+            <label for="maxTexts">Máx. elementos</label>
+            <input id="maxTexts" type="number" value="10" min="1" max="1000" />
           </div>
           <div>
             <label for="delayMs">Pausa ms</label>
@@ -74,7 +74,7 @@
 
       <section class="card">
         <h2>Acciones de traducción</h2>
-        <p class="hint">Flujo recomendado: traducir primero y después aplicar formato de negritas.</p>
+        <p class="hint">Escaneo profundo activado: formas, grupos, subgrupos y tablas cuando Office.js lo permita.</p>
         <button id="testTranslator" type="button">Probar traductor</button>
         <button id="translateCurrentSlide" type="button">Traducir diapositiva actual</button>
         <button id="translateAllSlides" type="button">Traducir presentación</button>
